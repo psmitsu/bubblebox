@@ -1,0 +1,12 @@
+# Basic box config, more secure that __basic_loose
+--ro-bind /usr/bin /usr/bin
+--ro-bind /usr/lib /usr/lib
+--dir /etc
+--ro-bind /etc/alternatives /etc/alternatives
+--symlink /usr/bin /bin
+--symlink /usr/lib /lib
+--symlink /usr/lib/x86_64-linux-gnu /lib64
+--proc /proc
+--tmpfs /tmp
+--dev /dev
+--die-with-parent
