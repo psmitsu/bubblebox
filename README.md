@@ -18,7 +18,13 @@ Then put that box to use:
 
 This will run `bwrap bash`, with the contents of MyBox folder mounted as $HOME and some basic settings that give a usable environment.
 
-The last invocation arguments for a given box are saved, so if you want to use that box later without changing anything run
+Option `-p __basic` means include profile `__basic`. See next section for more info.
+
+You can supply `bwrap` options directly like that:
+
+    ./bbox.sh -b MyBox -p wine -r -- --ro-bind ~/Temp/wine-proton-8.0.4 /usr/local
+
+The last invocation arguments for a box are saved, so if you want to use that box later without changing anything run
     
     ./bbox.sh -b MyBox -R
 
@@ -48,7 +54,7 @@ The way these profiles are imported allows some Bash processing inside the profi
         # profiles/__home.profile
         --bind $( get_home ) $HOME
 
-There is also a way to include profiles within others:
+There is also a way to include profiles within other profiles:
         
         # profiles/wine.profile
         !include __basic
